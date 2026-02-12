@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #10121e 0%, #1b1e2a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 16px;
+}
+
+.container {
+    max-width: 750px;
+    width: 100%;
+    background: rgba(18, 20, 28, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 24px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* АВТОРИЗАЦИЯ */
+.auth-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 16px 8px;
+    color: #eef3ff;
+}
+
+.auth-box h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    color: #d0d9ff;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.auth-box p {
+    text-align: center;
+    color: #a6b3d1;
+}
+
+#username-input {
+    background: #0c0f16;
+    border: 1px solid #2e3545;
+    border-radius: 60px;
+    padding: 16px 24px;
+    font-size: 1.1rem;
+    color: white;
+    outline: none;
+    transition: 0.2s;
+}
+
+#username-input:focus {
+    border-color: #5f7abf;
+    background: #0a0c12;
+    box-shadow: 0 0 0 2px rgba(95, 122, 191, 0.2);
+}
+
+button {
+    background: #2d3b5a;
+    border: none;
+    border-radius: 60px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: 0.15s;
+    border: 1px solid rgba(255,255,255,0.05);
+    letter-spacing: 0.3px;
+}
+
+button:hover {
+    background: #3f517a;
+    transform: scale(1.01);
+}
+
+.danger-btn {
+    background: #5a2d3b;
+}
+
+.danger-btn:hover {
+    background: #7a3f4f;
+}
+
+#login-btn {
+    background: #4b6cb0;
+    font-size: 1.2rem;
+    padding: 16px;
+}
+
+#login-btn:hover {
+    background: #5f7ec9;
+}
+
+.error-message {
+    color: #ffa7a7;
+    text-align: center;
+    min-height: 24px;
+    font-size: 0.95rem;
+}
+
+/* ЧАТ-ИНТЕРФЕЙС */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #2c3142;
+    color: #cbd5ff;
+    font-weight: 500;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+#display-username {
+    background: #262d3e;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-size: 1rem;
+    color: #b4c6ff;
+    border: 1px solid #3a415a;
+}
+
+#clear-chat-btn {
+    background: #442c38;
+    border: 1px solid #7e4a5a;
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: #ffd1d1;
+    font-size: 0.9rem;
+}
+
+#clear-chat-btn:hover {
+    background: #6a3f4f;
+}
+
+#logout-btn {
+    background: transparent;
+    border: 1px solid #5c647e;
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: #ccd6f0;
+    font-size: 0.9rem;
+}
+
+#logout-btn:hover {
+    background: #322f44;
+    border-color: #a88c8c;
+    color: white;
+}
+
+.messages {
+    height: 380px;
+    overflow-y: auto;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #0e111a;
+    border-radius: 24px;
+    margin: 20px 0;
+    scroll-behavior: smooth;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 24px;
+    word-break: break-word;
+    background: #202433;
+    color: #e9edff;
+    align-self: flex-start;
+    border-bottom-left-radius: 6px;
+    border: 1px solid #2e3440;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message.my-message {
+    background: #2a4b7a;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 24px;
+    border: 1px solid #3d6b9c;
+}
+
+.message .sender {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #b4ccff;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 6px;
+}
+
+.message.my-message .sender {
+    color: #dce5ff;
+}
+
+.message .time {
+    font-size: 0.65rem;
+    opacity: 0.7;
+    margin-left: 8px;
+}
+
+.message.system-message {
+    background: #2a2a3a;
+    border-left: 4px solid #6b8cff;
+    align-self: center;
+    text-align: center;
+    max-width: 90%;
+    font-style: italic;
+    color: #c6d0ff;
+}
+
+.input-area {
+    display: flex;
+    gap: 12px;
+    background: #0e111a;
+    padding: 10px;
+    border-radius: 60px;
+    border: 1px solid #2a3040;
+}
+
+#message-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 14px 20px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+#message-input::placeholder {
+    color: #6a7390;
+}
+
+#send-btn {
+    background: #3a5683;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#send-btn:hover {
+    background: #4f6ea3;
+}
+
+/* ДИАЛОГ ПОДТВЕРЖДЕНИЯ */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.confirm-content {
+    background: #1a1e2c;
+    padding: 32px;
+    border-radius: 24px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid #3e4a66;
+}
+
+.confirm-content h3 {
+    color: #ffb4b4;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.confirm-content p {
+    color: #b8c1df;
+    margin-bottom: 24px;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.confirm-buttons button {
+    min-width: 120px;
+}
+
+/* Скролл */
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #0a0d14;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #38405e;
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background: #4f5a80;
+}

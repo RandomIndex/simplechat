@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat · GitHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="auth-container" class="container">
+        <div class="auth-box">
+            <h2>✎ Simple Chat</h2>
+            <p>Введите имя, чтобы войти</p>
+            <input type="text" id="username-input" placeholder="например, Анна" autocomplete="off">
+            <button id="login-btn">войти в чат</button>
+            <div id="auth-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <div id="chat-container" class="container hidden">
+        <div class="chat-header">
+            <span id="display-username"></span>
+            <div class="header-buttons">
+                <button id="clear-chat-btn" class="danger-btn" title="Очистить все сообщения">🗑 очистить</button>
+                <button id="logout-btn">✕ выйти</button>
+            </div>
+        </div>
+        <div id="messages-area" class="messages"></div>
+        <div class="input-area">
+            <input type="text" id="message-input" placeholder="напишите сообщение... /clear - очистить чат" autocomplete="off">
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+
+    <div id="confirm-dialog" class="confirm-dialog hidden">
+        <div class="confirm-content">
+            <h3>Очистить весь чат?</h3>
+            <p>Все сообщения будут удалены безвозвратно.</p>
+            <div class="confirm-buttons">
+                <button id="confirm-clear-btn" class="danger-btn">да, очистить</button>
+                <button id="cancel-clear-btn">отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
